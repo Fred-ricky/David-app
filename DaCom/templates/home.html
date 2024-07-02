@@ -1,66 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* Custom CSS */
-    /* You can add your custom styles here */
-  </style>
-</head>
-<body>
+{% extends "base.html" %}
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">Davids app</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Blog</a>
-            <a class="dropdown-item" href="#">Portfolio</a>
-            
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="login.html">Login</a>
-    </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+{% block content%}
 
-<!-- Main Content -->
-<div class="container mt-5">
-  <h1>Welcome to Your Website</h1>
-  <p>This is a simple landing page with a navbar menu using HTML, CSS, and Bootstrap.</p>
+
+<div class="position-absolute top-50 start-50 translate-middle bg-image" >
+    <h1 class="display-1 fw-bold">BridgeUs</h1>
+    <p class="fst-italic fw-bolder">Bringing Those Who will do the best work for you</p>
+    <button type="button" class="btn btn-primary m-0 p-3 position-relative" >login</button>
+    <button type="button" class="btn btn-primary m-0 p-3 position-relative" >register</button>
+
 </div>
+{%  endblock %}
 
-<!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>

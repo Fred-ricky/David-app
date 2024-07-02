@@ -1,0 +1,14 @@
+<!-- templates/dashboard/worker_dashboard.html -->
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Worker Dashboard</h1>
+  <p>Welcome, {{ worker.name }}.</p>
+  <h2>Assigned Clients</h2>
+  <ul>
+    {% for assignment in assignments %}
+      <li>{{ assignment.client.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
