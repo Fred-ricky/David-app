@@ -3,41 +3,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <!-- templates/client_dashboard.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Dashboard</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <h1 class="mt-5">Welcome, {{ client.user.username }}</h1>
-        <h2>Company: {{ client.company_name }}</h2>
-        <h3>Assigned Workers:</h3>
-        {% if assignments %}
-            <ul>
-                {% for assignment in assignments %}
-                    <li>{{ assignment.worker.first_name }} {{ assignment.worker.last_name }} - {{ assignment.worker.phone_number }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No workers yet</p>
-        {% endif %}
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
+<div class="container">
+    <h1 class="mt-5">Welcome, {{ client.user.username }}</h1>
+    <h2>Company: {{ client.company_name }}</h2>
+    <h3>Assigned Workers:</h3>
+    {% if assignments %}
+        <ul>
+            {% for assignment in assignments %}
+                <li>{{ assignment.worker.first_name }} {{ assignment.worker.last_name }} - {{ assignment.worker.phone_number }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No workers yet</p>
+    {% endif %}
+</div>
 {% endblock %}

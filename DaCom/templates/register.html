@@ -1,51 +1,12 @@
+{% extends "base.html" %}
 
-<!-- templates/registration/signup.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userTypeField = document.getElementById('id_user_type');
-            const companyNameField = document.getElementById('id_company_name').parentElement;
-            const stateField = document.getElementById('id_state').parentElement;
-            const lgaField = document.getElementById('id_lga').parentElement;
-            const phoneNumberField = document.getElementById('id_phone_number').parentElement;
-
-            function toggleFields() {
-                const userType = userTypeField.value;
-                if (userType === 'client') {
-                    companyNameField.style.display = '';
-                    stateField.style.display = '';
-                    lgaField.style.display = '';
-                    phoneNumberField.style.display = 'none';
-                } else if (userType === 'worker') {
-                    companyNameField.style.display = 'none';
-                    stateField.style.display = '';
-                    lgaField.style.display = '';
-                    phoneNumberField.style.display = '';
-                } else {
-                    companyNameField.style.display = 'none';
-                    stateField.style.display = 'none';
-                    lgaField.style.display = 'none';
-                    phoneNumberField.style.display = 'none';
-                }
-            }
-
-            userTypeField.addEventListener('change', toggleFields);
-            toggleFields(); // Initial call to set the correct fields visibility
-        });
-    </script>
-</head>
-<body>
+{% block content %}
 <div class="container mt-5">
     <h2>Register</h2>
-    <form method="post">
+    <form method="POST" class="needs-validation" novalidate>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary mt-3">Register</button>
     </form>
 </div>
-</body>
-</html>
+{% endblock %}

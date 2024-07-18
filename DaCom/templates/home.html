@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block content%}
+{% block content %}
 
-
-<div class="position-absolute top-50 start-50 translate-middle bg-image" >
+<div class="position-absolute top-50 start-50 translate-middle text-center">
     <h1 class="display-1 fw-bold">BridgeUs</h1>
-    <p class="fst-italic fw-bolder">Bringing Those Who will do the best work for you</p>
-    <button type="button" class="btn btn-primary m-0 p-3 position-relative" >login</button>
-    <button type="button" class="btn btn-primary m-0 p-3 position-relative" >register</button>
-
+    <p class="fst-italic fw-bolder">Bringing Those Who Will Do the Best Work for You</p>
+    <div class="d-flex justify-content-center mt-3">
+        <a href="{% url 'login' %}" class="btn btn-primary m-2 p-3">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-primary m-2 p-3">Register</a>
+    </div>
 </div>
-{%  endblock %}
 
+{% endblock %}
