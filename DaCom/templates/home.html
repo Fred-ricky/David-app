@@ -2,13 +2,30 @@
 
 {% block content %}
 
-<div class="position-absolute top-50 start-50 translate-middle text-center">
-    <h1 class="display-1 fw-bold">BridgeUs</h1>
-    <p class="fst-italic fw-bolder">Bringing Those Who Will Do the Best Work for You</p>
+<div class="container mt-4">
+    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16">
+        <div class="container mx-auto px-6 lg:px-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                Welcome to <span class="text-yellow-300">BridgeUs</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8">
+                Empowering your journey with cutting-edge solutions.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#services" class="px-6 py-3 bg-yellow-300 text-gray-900 rounded-md text-lg font-medium hover:bg-yellow-400 transition">
+                    Explore Services
+                </a>
+                <a href="#contact" class="px-6 py-3 bg-white text-blue-600 rounded-md text-lg font-medium hover:bg-gray-100 transition">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="d-flex justify-content-center mt-3">
         <a href="{% url 'login' %}" class="btn btn-primary m-2 p-3">Login</a>
         <a href="{% url 'register' %}" class="btn btn-primary m-2 p-3">Register</a>
     </div>
-</div>
 
 {% endblock %}

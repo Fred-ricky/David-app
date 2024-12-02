@@ -1,19 +1,16 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .forms import CustomUserCreationForm
 from .models import Client, Worker, Assignment, CustomUser
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.db.utils import IntegrityError
+ 
 
 
 def home(request):
     return render(request, 'home.html')
 
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
-from .models import Client, Assignment
 
 @login_required
 def client_dashboard(request):
@@ -29,10 +26,6 @@ def client_dashboard(request):
     else:
         return render(request, 'not_authorized.html')
 
-
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
-from .models import Client, Assignment
 
 @login_required
 def worker_dashboard(request):
@@ -114,4 +107,12 @@ def loginView(request):
         form = AuthenticationForm()
     
     return render(request, 'login.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
+
+
 

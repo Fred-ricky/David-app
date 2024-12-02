@@ -12,7 +12,7 @@ class Client(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='client')
     company_name = models.CharField(max_length=100, verbose_name='Company Name')
     state = models.CharField(max_length=100)
-    lga = models.CharField(max_length=100)
+    LGA = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15, default='', verbose_name='Phone Number')
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Client(models.Model):
 class Worker(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='worker')
     state = models.CharField(max_length=100)
-    lga = models.CharField(max_length=100)
+    LGA = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15, verbose_name='Phone Number')
 
     def __str__(self):
