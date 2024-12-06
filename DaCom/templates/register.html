@@ -1,20 +1,85 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="max-w-lg mx-auto mt-10 bg-white p-8 rounded-lg shadow-md">
-    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Register</h2>
-    <form method="POST" class="space-y-6">
-        {% csrf_token %}
-        
-        <!-- Render form fields -->
-        {{ form.as_p }}
 
-        <!-- Submit Button -->
-        <button type="submit" class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition">
-            Register
-        </button>
-    </form>
-</div>
+
+    <div class="bg-white shadow-lg rounded-lg w-full max-w-4xl p-6">
+        <div class="flex justify-center mb-6">
+            <button id="clientTab" 
+                    class="px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg focus:outline-none">
+                Client Registration
+            </button>
+            <button id="workerTab" 
+                    class="ml-4 px-4 py-2 font-semibold text-blue-500 bg-gray-200 rounded-lg focus:outline-none">
+                Worker Registration
+            </button>
+        </div>
+
+        <!-- Forms -->
+        <div id="clientForm" class="block">
+            <h2 class="text-2xl font-semibold mb-4">Client Registration</h2>
+            <form method="POST" class="space-y-4">
+                {% csrf_token %}
+                {% if registration_type == 'client' and client_form %}
+                {{ client_form.as_p }}
+                {% endif %}
+
+                {{ user_form.as_p }}
+               
+                <button type="submit" name="client_submit" 
+                        class="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+                    Register as Client
+                </button>
+            </form>
+        </div>
+
+        <div id="workerForm" class="hidden">
+            <h2 class="text-2xl font-semibold mb-4">Worker Registration</h2>
+            <form method="POST" class="space-y-4">
+                {% csrf_token %}
+
+                {% if registration_type == 'worker' and worker_form %}
+                    {{ worker_form.as_p }}
+                {% endif %}
+
+                {{ user_form.as_p }}
+                
+                <button type="submit" name="worker_submit" 
+                        class="w-full px-4 py-2 font-semibold text-white bg-green-500 rounded-lg hover:bg-green-600">
+                    Register as Worker
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle between forms
+        const clientTab = document.getElementById('clientTab');
+        const workerTab = document.getElementById('workerTab');
+        const clientForm = document.getElementById('clientForm');
+        const workerForm = document.getElementById('workerForm');
+
+        clientTab.addEventListener('click', () => {
+            clientForm.classList.remove('hidden');
+            workerForm.classList.add('hidden');
+            clientTab.classList.add('bg-blue-500', 'text-white');
+            clientTab.classList.remove('bg-gray-200', 'text-blue-500');
+            workerTab.classList.remove('bg-blue-500', 'text-white');
+            workerTab.classList.add('bg-gray-200', 'text-blue-500');
+        });
+
+        workerTab.addEventListener('click', () => {
+            workerForm.classList.remove('hidden');
+            clientForm.classList.add('hidden');
+            workerTab.classList.add('bg-blue-500', 'text-white');
+            workerTab.classList.remove('bg-gray-200', 'text-blue-500');
+            clientTab.classList.remove('bg-blue-500', 'text-white');
+            clientTab.classList.add('bg-gray-200', 'text-blue-500');
+        });
+    </script>
+
+
+
 
  
 {% endblock %}

@@ -26,7 +26,8 @@
           {% else %}
               <a href="{% url 'login' %}" class="hover:text-gray-300">Login</a>
           {% endif %}
-          <a href="{% url 'register' %}" class="hover:text-gray-300">Register</a>
+          <a href="{% url 'worker_register' %}" class="block hover:text-gray-300">Register as worker</a>
+          <a href="{% url 'client_register' %}" class="block hover:text-gray-300">Register as client</a>
       </div>
   </div>
 
@@ -44,7 +45,9 @@
       {% else %}
           <a href="{% url 'login' %}" class="block hover:text-gray-300">Login</a>
       {% endif %}
-      <a href="{% url 'register' %}" class="block hover:text-gray-300">Register</a>
+      <a href="{% url 'worker_register' %}" class="block hover:text-gray-300">Register as worker</a>
+      <a href="{% url 'client_register' %}" class="block hover:text-gray-300">Register as client</a>
+
   </div>
 </nav>
 

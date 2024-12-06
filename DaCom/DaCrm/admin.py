@@ -3,23 +3,23 @@ from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, Client, Worker, Assignment
 
 class CustomUserAdmin(UserAdmin):
-    fieldsets = UserAdmin.fieldsets + (
-        (None, {'fields': ('user_type',)}),
-    )
-    list_display = ('username', 'email', 'first_name', 'last_name', 'user_type', 'is_staff')
-    search_fields = ('username', 'email', 'first_name', 'last_name', 'user_type')
+    model = CustomUser
+    list_display = ('email', 'is_staff', 'is_active')  # Replace 'username' with 'email'
+    list_filter = ('is_staff', 'is_active', 'is_client', 'is_worker')
+    ordering = ('email',)  # Use 'email' instead of 'username'
+    search_fields = ('email',)  # Use 'email' for searching
 
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ('user', 'company_name', 'state', 'lga', 'phone_number')
-    search_fields = ('user__username', 'company_name', 'state', 'lga', 'phone_number')
+    list_display = ('user', 'company_name', 'state', 'LGA', 'phone_number')
+    search_fields = ('company_name', 'state', 'LGA', 'phone_number')
 
 class WorkerAdmin(admin.ModelAdmin):
-    list_display = ('user', 'state', 'lga', 'phone_number')
-    search_fields = ('user__username', 'first_name', 'last_name', 'state', 'lga', 'phone_number')
+    list_display = ('user', 'state', 'LGA', 'phone_number')
+    search_fields = ('state', 'LGA', 'phone_number')
 
 class AssignmentAdmin(admin.ModelAdmin):
     list_display = ('worker', 'client', 'assigned_at')
-    search_fields = ('worker__user__username', 'client__user__username', 'assigned_at')
+    search_fields = ('email', 'is_client', 'is_worker', 'assigned_at')
     list_filter = ('assigned_at',)
 
 admin.site.register(CustomUser, CustomUserAdmin)

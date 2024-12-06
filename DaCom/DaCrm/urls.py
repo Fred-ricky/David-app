@@ -8,7 +8,8 @@ urlpatterns = [
      path('worker-dashboard/', views.worker_dashboard, name='worker_dashboard'),
      path('not_authorized/', views.not_authorized_view, name='not_authorized'),
      path('logout/', views.logout_view, name='logout'),
-     path('register/', views.register_page, name='register'),
+     path('client-register/', views.client_register, name='client_register'),
+     path('worker-register/', views.worker_register, name='worker_register'),
     
 ]
 
